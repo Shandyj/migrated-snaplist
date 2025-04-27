@@ -12,7 +12,7 @@ export function SignOutButton() {
 
   return (
     <button
-      className="px-4 py-2 rounded-lg transition-colors bg-blue-500 text-white"
+      className="px-4 py-2 rounded-lg transition-colors text-red-600 hover:bg-red-50"
       onClick={() => void signOut()}
     >
       Sign out

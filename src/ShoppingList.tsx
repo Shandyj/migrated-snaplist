@@ -11,7 +11,7 @@ export function ShoppingList() {
     <div className="min-h-screen bg-gray-50 p-4 md:p-6">
       <div className="max-w-2xl mx-auto space-y-6">
         <div className="flex items-center justify-between bg-white rounded-lg p-4 shadow-sm">
-          <h1 className="text-xl font-semibold text-gray-900">Shopping List</h1>
+          <h1 className="text-xl font-semibold text-gray-900">SnapList</h1>
           <button
             onClick={() => setShowSettings(true)}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors"

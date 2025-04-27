@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../convex/_generated/api";
+import { SignOutButton } from "./SignOutButton";
 
 export function Settings({
   open,
@@ -149,6 +150,10 @@ export function Settings({
           >
             Save Changes
           </button>
+          
+          <div className="flex justify-end pt-2 border-t">
+            <SignOutButton />
+          </div>
         </div>
       </div>
     </div>

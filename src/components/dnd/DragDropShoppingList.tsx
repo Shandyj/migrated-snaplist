@@ -46,58 +46,59 @@ export function DragDropShoppingList() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row gap-4">
-        <form onSubmit={handleAddItem} className="bg-white rounded-lg p-4 shadow-sm space-y-4 md:space-y-0 md:flex md:gap-4 flex-1">
-          <div className="flex-1">
+        <form onSubmit={handleAddItem} className="bg-white rounded-lg p-4 shadow-sm space-y-2 flex-1">
+          <div className="flex gap-2">
             <input
               type="text"
               placeholder="Add an item"
               value={newItemName}
               onChange={(e) => setNewItemName(e.target.value)}
-              className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="flex-1 px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
-          </div>
-          <div className="w-full md:w-32">
             <input
               type="text"
               placeholder="Quantity"
               value={newItemQuantity}
               onChange={(e) => setNewItemQuantity(e.target.value)}
-              className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-24 px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
-          <select
-            value={selectedStore?.toString() || ""}
-            onChange={(e) => setSelectedStore(e.target.value as Id<"stores">)}
-            className="w-full md:w-auto px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
-          >
-            <option value="">Select store</option>
-            {stores.map((store) => (
-              <option key={store._id} value={store._id}>
-                {store.name}
-              </option>
-            ))}
-          </select>
-          <button
-            type="submit"
-            disabled={!selectedStore || !newItemName}
-            className="w-full md:w-auto px-6 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center justify-center gap-2 transition-colors"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+          
+          <div className="flex gap-2">
+            <select
+              value={selectedStore?.toString() || ""}
+              onChange={(e) => setSelectedStore(e.target.value as Id<"stores">)}
+              className="flex-1 px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
             >
-              <line x1="12" y1="5" x2="12" y2="19" />
-              <line x1="5" y1="12" x2="19" y2="12" />
-            </svg>
-            Add Item
-          </button>
+              <option value="">Select store</option>
+              {stores.map((store) => (
+                <option key={store._id} value={store._id}>
+                  {store.name}
+                </option>
+              ))}
+            </select>
+            <button
+              type="submit"
+              disabled={!selectedStore || !newItemName}
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center justify-center gap-2 transition-colors"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+              Add
+            </button>
+          </div>
         </form>
 
         {isAddingStore ? (
